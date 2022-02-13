@@ -2,8 +2,8 @@ plugins {
     kotlin("jvm") version "1.5.10"
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+group = "com.otus.kotlin"
+version = "0.0.1"
 
 repositories {
     mavenCentral()
@@ -11,4 +11,5 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
+    testImplementation(kotlin("test-junit"))
 }
