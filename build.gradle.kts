@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.5.10"
+    kotlin("jvm") version "1.6.20-M1"
 }
 
 group = "com.otus.kotlin"
