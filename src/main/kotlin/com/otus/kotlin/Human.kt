@@ -11,7 +11,7 @@ class HumanDsl : AnimalDsl() {
 
 
     fun dog(dog: Dog) = add(dog)
-    fun dog(function: DogDsl.() -> Unit) = add(DogDsl().apply(function).build())
+    fun dog(function: DogDsl.() -> Unit) = this + DogDsl().apply(function)
 }
 
 class VoiceCommand : Action {

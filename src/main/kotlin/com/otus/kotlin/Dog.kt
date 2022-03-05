@@ -8,7 +8,7 @@ class DogDsl : AnimalDsl() {
     fun flea(flea: Flea) = add(flea)
 
     // Наличие inline reified функций
-    inline fun flea(flea: FleaDsl.() -> Unit) = this add FleaDsl().apply(flea)
+    inline fun flea(flea: FleaDsl.() -> Unit) = this + FleaDsl().apply(flea)
 }
 
 class Woof : Action {
