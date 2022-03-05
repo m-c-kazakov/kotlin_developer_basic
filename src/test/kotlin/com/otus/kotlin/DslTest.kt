@@ -12,12 +12,15 @@ class DslTest {
         val animalGroup = human {
             name = "Олег"
             number = 1
+            specific = VoiceCommand()
             dog {
                 name = "Пес"
                 number = 1
+                specific = Woof()
                 flea {
                     name = "Блохи"
                     number = 3
+                    specific = Bit()
                 }
             }
         }

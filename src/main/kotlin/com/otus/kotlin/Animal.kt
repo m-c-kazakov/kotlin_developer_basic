@@ -1,18 +1,20 @@
 package com.otus.kotlin
 
-sealed class Animal(
+sealed class Animal<out T:Action>(
     val name: String,
     val number: Int,
-    val children: List<Animal> = emptyList()
+    val children: List<Animal<*>> = emptyList(),
+    // Наличие обобщенных типов в DSL
+    val specific: T
 )
 
 abstract class AnimalDsl {
     var name: String = ""
     var number: Int = 0
-    // Наличие обобщенных типов в DSL
-    var children: MutableList<Animal> = mutableListOf()
+    var children: MutableList<Animal<*>> = mutableListOf()
+    lateinit var specific: Action
 
-    fun add(animal: Animal) {
+    fun add(animal: Animal<*>) {
         children.add(animal)
     }
 
@@ -21,6 +23,6 @@ abstract class AnimalDsl {
         add(animalDsl.build())
     }
 
-    abstract fun build(): Animal
+    abstract fun build(): Animal<*>
 
 }
