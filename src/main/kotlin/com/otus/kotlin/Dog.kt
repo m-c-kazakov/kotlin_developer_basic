@@ -2,6 +2,8 @@ package com.otus.kotlin
 
 class Dog(name: String, number: Int, children: List<Animal<*>> = emptyList(), specific: Woof) : Animal<Woof>(name, number, children, specific)
 
+fun dog(function: DogDsl.()->Unit): Animal<*> = DogDsl().apply(function).build()
+
 class DogDsl : AnimalDsl() {
     override fun build(): Dog = Dog(name, number, children.toList(), specific as Woof,)
 
