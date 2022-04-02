@@ -42,81 +42,29 @@ class CoroutineTest {
     @Test
     fun `suspend-метод для обработки с использованием sequence`() {
         val collectionWrapper = CollectionWrapper()
-
-        val sequence = (1..10000000)
-            .asSequence()
-            .filter { it % 7 == 0 }
-            .map { Human(name = "Человек_$it", number = it, children = emptyList(), specific = VoiceCommand()) }
-            .filter { it.name.contains("3") }
-            .drop(1)
-            .take(3)
-
-        collectionWrapper.addAll(sequence)
-
-        assertEquals(3, collectionWrapper.animals.size)
+        val human = collectionWrapper.getHumanWithUsingSequence()
+        assertEquals(3, human.size)
     }
 
     @Test
     fun `suspend-метод для обработки с использованием flow`() = runBlocking {
         val collectionWrapper = CollectionWrapper()
-
-        val flow = (1..10000000)
-            .asFlow()
-            .filter { it % 7 == 0 }
-            .map { Human(name = "Человек_$it", number = it, children = emptyList(), specific = VoiceCommand()) }
-            .filter { it.name.contains("3") }
-            .drop(1)
-            .take(3)
-
-        collectionWrapper.addAll(flow)
-
-        assertEquals(3, collectionWrapper.animals.size)
+        val humanWithUsingFlow = collectionWrapper.getHumanWithUsingFlow()
+        assertEquals(3, humanWithUsingFlow.size)
     }
 
     @Test
     fun `delay внутри операций над flow`() = runBlocking {
         val collectionWrapper = CollectionWrapper()
-
-        val flow = (1..10000000)
-            .asFlow()
-            .filter { it % 7 == 0 }
-            .map {
-                async {
-                    delay(2.seconds)
-                    Human(name = "Человек_$it", number = it, children = emptyList(), specific = VoiceCommand())
-                }
-            }
-            .drop(1)
-            .take(3)
-            .buffer(3)
-            .map { it.await() }
-
-        collectionWrapper.addAll(flow)
-
-        assertEquals(3, collectionWrapper.animals.size)
+        val humanWithUsingFlowAndDelay = collectionWrapper.getHumanWithUsingFlowAndDelay()
+        assertEquals(3, humanWithUsingFlowAndDelay.size)
     }
 
     @Test
     fun `Thread_sleep внутри операций над flow`() = runBlocking {
         val collectionWrapper = CollectionWrapper()
-
-        val flow = (1..10000000)
-            .asFlow()
-            .filter { it % 7 == 0 }
-            .map {
-                async(Dispatchers.IO) {
-                    Thread.sleep(2000)
-                    Human(name = "Человек_$it", number = it, children = emptyList(), specific = VoiceCommand())
-                }
-            }
-            .drop(1)
-            .take(3)
-            .buffer(3)
-            .map { it.await() }
-
-        collectionWrapper.addAll(flow)
-
-        assertEquals(3, collectionWrapper.animals.size)
+        val humanWithUsingFlowAndThreadSleep = collectionWrapper.getHumanWithUsingFlowAndThreadSleep()
+        assertEquals(3, humanWithUsingFlowAndThreadSleep.size)
     }
 
 
