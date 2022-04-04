@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.otus.kotlin.DslTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-04T15:37:05" hostname="maxim-HP-Pavilion-Gaming-Laptop-15-ec1xxx" time="0.049">
-  <properties/>
-  <testcase name="Домашнее задание по DSL" classname="com.otus.kotlin.DslTest" time="0.049"/>
-  <system-out><![CDATA[Кто я? FleaDsl
-Кто я? DogDsl
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
