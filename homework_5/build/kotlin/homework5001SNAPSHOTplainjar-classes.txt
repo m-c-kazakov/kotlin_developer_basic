@@ -1,0 +1,1 @@
+/home/maxim/IdeaProjects/kotlin_developer_basic/homework_5/build/classes/kotlin/main/com/example/homework_5/Homework5Application.class:/home/maxim/IdeaProjects/kotlin_developer_basic/homework_5/build/classes/kotlin/main/com/example/homework_5/Homework5ApplicationKt.class
