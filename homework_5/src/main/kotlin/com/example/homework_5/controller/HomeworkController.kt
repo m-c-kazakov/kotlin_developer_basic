@@ -18,7 +18,8 @@ class HomeworkController {
     fun get(@RequestBody idDto: IdDto): String  {
         return idDto.id
     }
-    // Добавьте в контроллер метод для эндпоинта post, принимающего Json-запрос с полем name и возвращающего Json-ответ с полем greeting, содержащим приветствие для name.
+    // Добавьте в контроллер метод для эндпоинта post, принимающего Json-запрос с полем name и
+    // возвращающего Json-ответ с полем greeting, содержащим приветствие для name.
     @PostMapping
     fun post(@RequestBody nameDto: NameDto): GreetingDto {
         return GreetingDto("Hello ${nameDto.name}")
