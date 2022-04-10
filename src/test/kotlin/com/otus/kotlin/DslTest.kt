@@ -1,8 +1,8 @@
 package com.otus.kotlin
 
-import org.junit.Assert.assertTrue
-import org.junit.Test
-import kotlin.test.assertEquals
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
 
 class DslTest {
 
@@ -26,19 +26,17 @@ class DslTest {
         }
 
         assertEquals("Олег", animalGroup.name)
-        assertTrue(
-            "dog contains лайка",
-            animalGroup.children.first {
+        assertTrue(animalGroup.children.first {
                 it.name == "Пес"
-            } != null
+            } != null, "dog contains лайка"
         )
         assertTrue(
-            "У собаки 3 блохи",
             animalGroup.children.first {
                 it.name == "Пес"
             }.children.first{
                 it.name == "Блохи"
-            }.number == 3
+            }.number == 3,
+            "У собаки 3 блохи"
         )
 
     }

@@ -1,3 +1,4 @@
+
 plugins {
     kotlin("jvm") version "1.6.20-M1"
 }
@@ -11,5 +12,6 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    testImplementation(kotlin("test-junit"))
+    implementation("org.junit.jupiter:junit-jupiter:5.8.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
 }
